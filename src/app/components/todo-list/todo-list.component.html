@@ -1,0 +1,6 @@
+<mat-list>
+    <mat-list-item *ngFor="let todo of todos$ | async">
+        <mat-checkbox [checked]="todo.completed" (change)="toggleCompletion(todo.id)">{{ todo.task }}</mat-checkbox>
+        <button mat-button (click)="deleteTodo(todo.id)">Delete</button>
+    </mat-list-item>
+</mat-list>
