@@ -8,9 +8,11 @@ export const initialState: TodoState = {
   
   export const todoReducer = createReducer(
     initialState,
+    // Add todo
     on(TodoActions.addTodo, (state, { todo }) => {
       return { ...state, todos: [...state.todos, todo] };
     }),
+    // Toggle todo
     on(TodoActions.toggleTodo, (state, { todoId }) => {
       return {
         ...state,
@@ -22,6 +24,7 @@ export const initialState: TodoState = {
         })
       };
     }),
+    // Delete todo
     on(TodoActions.deleteTodo, (state, { todoId }) => {
       return { ...state, todos: state.todos.filter(todo => todo.id !== todoId) };
     })
